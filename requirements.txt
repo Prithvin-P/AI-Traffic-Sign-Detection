@@ -1,0 +1,16 @@
+tensorflow
+flask
+numpy
+pandas
+matplotlib
+pillow
+scikit-learn
+
+
+
+
+dir
+
+dir app.py
+
+python app.py

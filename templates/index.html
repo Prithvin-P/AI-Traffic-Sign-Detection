@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Traffic Sign Detection | Traffic Sign AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-effects">
+
+    <div class="gradient-orb orb-one"></div>
+    <div class="gradient-orb orb-two"></div>
+    <div class="gradient-orb orb-three"></div>
+
+    <div class="grid-background"></div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="brand">
+
+            <div class="brand-icon">
+                🚦
+            </div>
+
+            <div>
+                <strong>TRAFFIC SIGN</strong>
+                <small>AI VISION</small>
+            </div>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#analyzer">Analyzer</a>
+
+            <a href="#features">Features</a>
+
+            <button id="themeToggle"
+                    class="theme-button"
+                    type="button">
+                ☼
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="home">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <div class="hero-content">
+
+            <div class="status-badge">
+
+                <span class="status-dot"></span>
+
+                AI VISION SYSTEM
+
+                <span class="badge-line"></span>
+
+                ONLINE
+
+            </div>
+
+
+            <h1>
+
+                <span class="hero-line">
+                    UNDERSTAND
+                </span>
+
+                <span class="hero-line gradient-text">
+                    THE ROAD.
+                </span>
+
+                <span class="hero-line">
+                    IDENTIFY THE SIGN.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Upload a traffic sign image and let our
+                deep learning system analyze it using a
+                trained 43-class traffic sign recognition model.
+
+            </p>
+
+
+            <div class="hero-stats">
+
+                <div class="stat">
+
+                    <strong>43</strong>
+
+                    <span>Sign Classes</span>
+
+                </div>
+
+
+                <div class="stat-divider"></div>
+
+
+                <div class="stat">
+
+                    <strong>AI</strong>
+
+                    <span>Deep Learning</span>
+
+                </div>
+
+
+                <div class="stat-divider"></div>
+
+
+                <div class="stat">
+
+                    <strong>32×32</strong>
+
+                    <span>Vision Input</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="scan-ring ring-one"></div>
+            <div class="scan-ring ring-two"></div>
+            <div class="scan-ring ring-three"></div>
+
+
+            <div class="vision-core">
+
+                <div class="core-grid"></div>
+
+                <div class="scanner-line"></div>
+
+                <div class="traffic-icon">
+                    🚦
+                </div>
+
+                <div class="core-text">
+
+                    <span>VISION</span>
+
+                    <strong>READY</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-label label-one">
+                CNN MODEL
+            </div>
+
+            <div class="floating-label label-two">
+                REAL-TIME
+            </div>
+
+            <div class="floating-label label-three">
+                43 CLASSES
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANALYZER
+===================================================== -->
+
+<section id="analyzer"
+         class="analyzer-section">
+
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            01
+        </div>
+
+        <div>
+
+            <span class="section-label">
+                COMPUTER VISION
+            </span>
+
+            <h2>
+                Analyze Your
+                <span>AI Traffic Sign Detection</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="analyzer-grid">
+
+
+        <!-- =================================================
+             UPLOAD PANEL
+        ================================================== -->
+
+        <div class="upload-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        IMAGE INPUT
+                    </span>
+
+                    <h3>
+                        Upload Sign
+                    </h3>
+
+                </div>
+
+                <div class="panel-status">
+                    READY
+                </div>
+
+            </div>
+
+
+
+            <form action="/"
+                  method="POST"
+                  enctype="multipart/form-data"
+                  id="uploadForm">
+
+
+                <div class="upload-zone"
+                     id="uploadZone">
+
+
+                    <input type="file"
+                           name="image"
+                           id="imageInput"
+                           accept=".jpg,.jpeg,.png"
+                           hidden>
+
+
+                    <!-- UPLOAD CONTENT -->
+
+                    <div class="upload-content"
+                         id="uploadContent">
+
+                        <div class="upload-icon">
+
+                            <span>↑</span>
+
+                        </div>
+
+
+                        <h4>
+                            Drop your image here
+                        </h4>
+
+
+                        <p>
+                            or click to browse from your device
+                        </p>
+
+
+                        <div class="file-types">
+
+                            <span>JPG</span>
+                            <span>PNG</span>
+                            <span>JPEG</span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PREVIEW -->
+
+                    <div class="image-preview"
+                         id="imagePreview">
+
+                        <img id="previewImage"
+                             src=""
+                             alt="Traffic sign preview">
+
+                        <div class="preview-overlay">
+                            IMAGE READY
+                        </div>
+
+
+                        <button type="button"
+                                id="removeImage"
+                                class="remove-image">
+                            ×
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- SCANNING -->
+
+                    <div class="scan-overlay"
+                         id="scanOverlay">
+
+                        <div class="scan-line"></div>
+
+                        <div class="scan-text"
+                             id="scanText">
+
+                            <span class="loading-dot"></span>
+
+                            ANALYZING IMAGE...
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ANALYZE BUTTON -->
+
+                <button type="submit"
+                        class="analyze-button"
+                        id="analyzeButton">
+
+                    <span>
+                        ANALYZE TRAFFIC SIGN
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <div class="error-message">
+
+                <strong>!</strong>
+
+                <span>
+                    {{ error }}
+                </span>
+
+            </div>
+
+            {% endif %}
+
+
+
+            <div class="upload-note">
+
+                ◆
+
+                AI analysis is for informational purposes
+                and may not replace real-world traffic guidance.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULT PANEL
+        ================================================== -->
+
+        <div class="result-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        AI OUTPUT
+                    </span>
+
+                    <h3>
+                        Prediction Report
+                    </h3>
+
+                </div>
+
+
+                <div class="result-indicator">
+
+                    <span></span>
+
+                    {% if result %}
+                        COMPLETE
+                    {% else %}
+                        WAITING
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+
+            {% if result %}
+
+
+            <!-- RESULT -->
+
+            <div class="result-content">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+
+                <div class="result-label">
+                    DETECTED TRAFFIC SIGN
+                </div>
+
+
+                <h2 class="sign-name">
+                    {{ result.sign_name }}
+                </h2>
+
+
+                <div class="class-display">
+
+                    <span>
+                        CLASS ID
+                    </span>
+
+                    <strong>
+                        {{ result.class_id }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confidence-section">
+
+                    <div class="confidence-header">
+
+                        <span>
+                            MODEL CONFIDENCE
+                        </span>
+
+                        <strong class="confidence-value">
+                            {{ result.confidence }}%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="confidence-track">
+
+                        <div class="confidence-bar"
+                             style="width: {{ result.confidence if result else 0 }}%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="result-image">
+
+                    <img src="{{ url_for('static',
+                             filename='uploads/' + result.image) }}"
+                         alt="Analyzed traffic sign">
+
+                </div>
+
+
+
+                <div class="analysis-complete">
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Analysis Complete
+                        </strong>
+
+                        <small>
+                            CNN classification successfully completed
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            {% else %}
+
+
+            <!-- EMPTY RESULT -->
+
+            <div class="empty-result">
+
+                <div class="empty-animation">
+
+                    <div class="empty-ring ring-a"></div>
+                    <div class="empty-ring ring-b"></div>
+
+                    <div class="empty-center">
+                        AI
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Awaiting Image
+                </h3>
+
+
+                <p>
+                    Upload a traffic sign image to begin
+                    AI-powered classification.
+                </p>
+
+
+                <div class="processing-steps">
+
+                    <div class="processing-step active">
+                        <span>01</span>
+                        Upload
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="processing-step">
+                        <span>02</span>
+                        Analyze
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="processing-step">
+                        <span>03</span>
+                        Report
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section id="features"
+         class="features-section">
+
+
+    <div class="section-heading centered">
+
+        <div class="section-number">
+            02
+        </div>
+
+        <div>
+
+            <span class="section-label">
+                SYSTEM CAPABILITIES
+            </span>
+
+            <h2>
+                Built for
+                <span>Intelligent Vision</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                01
+            </div>
+
+            <div class="feature-icon">
+                ◉
+            </div>
+
+            <h3>
+                Deep Learning
+            </h3>
+
+            <p>
+                CNN-based image classification trained
+                to recognize traffic sign categories.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                02
+            </div>
+
+            <div class="feature-icon">
+                ◇
+            </div>
+
+            <h3>
+                43 Classes
+            </h3>
+
+            <p>
+                Recognizes a broad range of standardized
+                traffic sign categories.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                03
+            </div>
+
+            <div class="feature-icon">
+                ⌁
+            </div>
+
+            <h3>
+                Fast Analysis
+            </h3>
+
+            <p>
+                Upload an image and receive the predicted
+                sign category with confidence.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-number">
+                04
+            </div>
+
+            <div class="feature-icon">
+                ◎
+            </div>
+
+            <h3>
+                Prediction Report
+            </h3>
+
+            <p>
+                View the detected class, confidence,
+                and analyzed image in one report.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <strong>
+            TRAFFIC SIGN AI
+        </strong>
+
+        <span>
+            Intelligent Vision System
+        </span>
+
+        <small>
+            Built with Python • TensorFlow • Keras • OpenCV • Flask
+        </small>
+
+        <small>
+            © 2026 Traffic Sign AI
+        </small>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    const form =
+        document.getElementById("uploadForm");
+
+    const fileInput =
+        document.getElementById("imageInput");
+
+    const uploadZone =
+        document.getElementById("uploadZone");
+
+    const uploadContent =
+        document.getElementById("uploadContent");
+
+    const imagePreview =
+        document.getElementById("imagePreview");
+
+    const previewImage =
+        document.getElementById("previewImage");
+
+    const removeImage =
+        document.getElementById("removeImage");
+
+    const analyzeButton =
+        document.getElementById("analyzeButton");
+
+    const scanOverlay =
+        document.getElementById("scanOverlay");
+
+    const scanText =
+        document.getElementById("scanText");
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+
+
+    /* =====================================================
+       UPLOAD ZONE
+    ===================================================== */
+
+    uploadZone.addEventListener("click", function (event) {
+
+        if (event.target.closest("#removeImage")) {
+            return;
+        }
+
+        fileInput.click();
+
+    });
+
+
+
+    /* =====================================================
+       FILE SELECT
+    ===================================================== */
+
+    fileInput.addEventListener("change", function () {
+
+        const file = this.files[0];
+
+        if (!file) {
+            return;
+        }
+
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please select a JPG, JPEG or PNG image.");
+
+            fileInput.value = "";
+
+            return;
+
+        }
+
+
+        showPreview(file);
+
+    });
+
+
+
+    /* =====================================================
+       SHOW PREVIEW
+    ===================================================== */
+
+    function showPreview(file) {
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload = function (event) {
+
+            previewImage.src =
+                event.target.result;
+
+            uploadContent.style.display =
+                "none";
+
+            imagePreview.classList.add("active");
+
+            analyzeButton.classList.add("ready");
+
+        };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+
+
+    /* =====================================================
+       REMOVE IMAGE
+    ===================================================== */
+
+    removeImage.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        fileInput.value = "";
+
+        previewImage.src = "";
+
+        imagePreview.classList.remove("active");
+
+        uploadContent.style.display =
+            "flex";
+
+        analyzeButton.classList.remove("ready");
+
+    });
+
+
+
+    /* =====================================================
+       DRAG & DROP
+    ===================================================== */
+
+    uploadZone.addEventListener("dragover", function (event) {
+
+        event.preventDefault();
+
+        uploadZone.classList.add("drag-active");
+
+    });
+
+
+    uploadZone.addEventListener("dragleave", function () {
+
+        uploadZone.classList.remove("drag-active");
+
+    });
+
+
+    uploadZone.addEventListener("drop", function (event) {
+
+        event.preventDefault();
+
+        uploadZone.classList.remove("drag-active");
+
+
+        const file =
+            event.dataTransfer.files[0];
+
+
+        if (!file) {
+            return;
+        }
+
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please drop an image file.");
+
+            return;
+
+        }
+
+
+        const dataTransfer =
+            new DataTransfer();
+
+        dataTransfer.items.add(file);
+
+        fileInput.files =
+            dataTransfer.files;
+
+
+        showPreview(file);
+
+    });
+
+
+
+    /* =====================================================
+       FORM SUBMIT
+    ===================================================== */
+
+    form.addEventListener("submit", function (event) {
+
+        if (!fileInput.files.length) {
+
+            event.preventDefault();
+
+            alert("Please select a traffic sign image first.");
+
+            return;
+
+        }
+
+
+        /* Show scanning animation */
+
+        scanOverlay.classList.add("active");
+
+
+        /* Disable button */
+
+        analyzeButton.disabled =
+            true;
+
+        analyzeButton.classList.add("loading");
+
+
+        /* Analysis messages */
+
+        const messages = [
+
+            "INITIALIZING AI...",
+
+            "LOADING IMAGE...",
+
+            "SCANNING FEATURES...",
+
+            "ANALYZING SHAPES...",
+
+            "CLASSIFYING SIGN...",
+
+            "CALCULATING CONFIDENCE...",
+
+            "GENERATING REPORT..."
+
+        ];
+
+
+        let index = 0;
+
+
+        const interval =
+            setInterval(function () {
+
+                if (index < messages.length) {
+
+                    scanText.textContent =
+                        messages[index];
+
+                    index++;
+
+                }
+                else {
+
+                    clearInterval(interval);
+
+                }
+
+            }, 400);
+
+
+        /*
+            IMPORTANT:
+            We intentionally DO NOT call
+            event.preventDefault() here.
+
+            Flask must receive the POST request.
+        */
+
+    });
+
+
+
+    /* =====================================================
+       THEME
+    ===================================================== */
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("light-mode");
+
+        const lightMode =
+            document.body.classList.contains("light-mode");
+
+        localStorage.setItem(
+            "trafficSignTheme",
+            lightMode ? "light" : "dark"
+        );
+
+    });
+
+
+    if (
+        localStorage.getItem("trafficSignTheme")
+        === "light"
+    ) {
+
+        document.body.classList.add("light-mode");
+
+    }
+
+
+
+    /* =====================================================
+       CONFIDENCE ANIMATION
+    ===================================================== */
+
+    const confidenceBar =
+        document.querySelector(".confidence-bar");
+
+    const confidenceValue =
+        document.querySelector(".confidence-value");
+
+
+    if (confidenceBar) {
+
+        const finalWidth =
+            confidenceBar.style.width;
+
+        confidenceBar.style.width =
+            "0%";
+
+
+        setTimeout(function () {
+
+            confidenceBar.style.width =
+                finalWidth;
+
+        }, 300);
+
+    }
+
+
+    if (confidenceValue) {
+
+        const target =
+            parseFloat(
+                confidenceValue.textContent
+            );
+
+
+        if (!isNaN(target)) {
+
+            let current = 0;
+
+            const duration = 1000;
+
+            const start =
+                performance.now();
+
+
+            function animate(timestamp) {
+
+                const progress =
+                    Math.min(
+                        (timestamp - start) / duration,
+                        1
+                    );
+
+
+                current =
+                    target * progress;
+
+
+                confidenceValue.textContent =
+                    current.toFixed(2) + "%";
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(
+                        animate
+                    );
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                animate
+            );
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const cards =
+        document.querySelectorAll(
+            ".feature-card"
+        );
+
+
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    cards.forEach(function (card) {
+
+        observer.observe(card);
+
+    });
+
+
+
+    /* =====================================================
+       HERO PARALLAX
+    ===================================================== */
+
+    const heroVisual =
+        document.querySelector(".hero-visual");
+
+
+    if (
+        heroVisual &&
+        window.innerWidth > 768
+    ) {
+
+        document.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const x =
+                    (event.clientX /
+                    window.innerWidth - 0.5) * 10;
+
+                const y =
+                    (event.clientY /
+                    window.innerHeight - 0.5) * 10;
+
+
+                heroVisual.style.transform =
+                    `translate(${x}px, ${y}px)`;
+
+            }
+        );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+venv/
+*.pyc
+.env
+static/uploads/*
+datasets/Train/
+datasets/Train copy/
+datasets/test_image/
+test_image/
